@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root{
+    --clr-Pale-Blue: hsl(243, 100%, 93%);
+    --clr-Grayish-Blue: hsl(229, 7%, 55%);
+    --clr-Dark-Blue: hsl(228, 56%, 26%);
+    --clr-Very-Dark-Blue: hsl(229, 57%, 11%);  
+
+    --fw-b: 700;
+    --pad--: 2rem;
+    --radius--: 0.6rem;
+}
+
+
+body {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    min-height: 100vh;
+    background:  url('./images/bg-desktop.png') no-repeat, var(--clr-Very-Dark-Blue);
+    background-position: bottom;
+    background-size: contain;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    color: var(--clr-Pale-Blue);
+}
+
+
+.container{
+    gap: 2rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-part{
+    padding: var(--pad--);
+    width: clamp(15rem, 350px, 90%);
+    height: clamp(10rem, 200px, 90%);
+    border-radius: var(--radius--) 6rem var(--radius--) var(--radius--);
+    display: grid;
+    gap: 1rem;
+}
+
+.right-part{    
+    width: clamp(15rem, 540px, 90%);
+    height: clamp(10rem, 200px, 90%);
+    display: flex;
+    flex-direction: column;
+}
+
+.invisible{
+    width: 100%;
+    min-height: 2rem;
+    background-color: var(--clr-Very-Dark-Blue);
+    flex-grow: 1;
+}
+
+.visible{
+    padding: var(--pad--);
+    position: relative;
+    border-radius: var(--radius--);
+    height: clamp(5rem, 155px, 90%);    
+}
+
+
+.flex{
+    display: flex;
+}
+
+.dbg{
+    background-color: var(--clr-Dark-Blue);
+}
+
+.bold{
+    font-weight: var(--fw-b);
+}
+
+.remaining{
+    align-items: center;
+    background-color: white;    
+    z-index: 10;
+    width: clamp(30%, 10rem, 50%);
+    position: absolute;
+    right: var(--pad--);
+    bottom: 80%;
+    border-radius: 0.5rem 0.5rem 0 0.5rem;
+    padding-inline: 1rem;
+    height: 3.5rem;
+}
+
+.remaining::after{
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent; 
+    border-top: 20px solid  white;
+    position: absolute;
+    right: 0;
+    top: 100%;
+}
+
+.remaining span{
+    font-size: 2rem;
+    color: var(--clr-Very-Dark-Blue);
+    padding-inline-end: 0.6rem;
+}
+
+.remaining p{
+    color: var(--clr-Grayish-Blue);    
+}
+
+.axis{
+    justify-content: space-between;
+}
+
+
+.progress-bar{
+    height: 1rem;
+    background-color: var(--clr-Very-Dark-Blue);    
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.gradient{
+    background: linear-gradient( 90deg,hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    height: 80%;
+    width: 81.5%;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.dot{
+    height: 80%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: white;
+}
+
+
+.icon{
+    display: flex;
+}
+
+.icon a{
+    padding: 0.7rem;    
+    margin-inline: 0.5rem;
+    background-color: var(--clr-Very-Dark-Blue);
+    border-radius: 0.5rem;
+    position: relative;
+    height: 2.5rem;
+    width: 2.5rem;
+    display:flex; 
+    justify-content:center;
+}
+
+#logo{
+    margin-block: 0.5rem;
+}
+
+@media (width < 33em){
+    body{
+        background:  url('./images/bg-mobile.png') no-repeat, 
+                    var(--clr-Very-Dark-Blue);
+        background-size: cover;
+    }
+    .container{
+        flex-direction: column;
+    }
+    .left-part{
+        width: 90%;
+    }
+    .remaining::after{
+        border-top: 20px solid  transparent;
+    }
+    .remaining{
+        border-bottom-right-radius: 0.5rem;
+        bottom: -20%;
+        right: 25%;
+        padding-inline: 0.5rem;
+    }
+    .right-part{
+        flex-direction: column-reverse;
+        height: auto;
+    }
+    .visible{
+        height: auto;
+    }
+    .invisible{
+        background-color: transparent;
+    }
+}
+
+
+
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
